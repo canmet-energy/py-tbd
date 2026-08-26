@@ -1,0 +1,17 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Test outputs (generated at runtime)
+tests/fixtures/osms/out/*
+!tests/fixtures/osms/out/.gitkeep

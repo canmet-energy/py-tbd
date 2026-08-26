@@ -1,0 +1,48 @@
+name: CI
+
+# Runs the full parity suite against committed golden fixtures. The goldens
+# themselves are (re)generated out-of-band from the Ruby gem via the Docker
+# harnesses in tools/ (see UPSTREAM.md); CI only consumes them.
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # OpenStudio SDK bindings + the Python ports of TBD's dependency gems.
+          pip install "openstudio==3.11.0" oslg osut jsonschema
+          pip install "py-topolys @ git+https://github.com/canmet-energy/py-topolys.git"
+          pip install -e ".[test]"
+
+      - name: Verify dependency imports
+        run: |
+          python -c "import openstudio, oslg, osut, py_topolys, tbd; print('tbd', tbd.VERSION, '| openstudio', openstudio.openStudioVersion())"
+
+      - name: Run unit tests
+        run: pytest tests/unit -q
+
+      - name: Run end-to-end parity tests
+        run: pytest tests/e2e -q
+
+      - name: Coverage summary
+        run: pytest --cov=tbd --cov-report=term-missing -q

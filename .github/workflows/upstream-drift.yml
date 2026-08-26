@@ -1,0 +1,58 @@
+name: Upstream drift check
+
+# Weekly best-effort check: has the pinned rd2/tbd revision fallen behind the
+# upstream develop branch? If so, open (or update) a tracking issue. This never
+# fails the build — it is purely a heads-up that a re-port + golden regeneration
+# may be due (see UPSTREAM.md).
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read pinned SHA
+        id: pin
+        run: |
+          sha=$(grep -oE 'UPSTREAM_SHA = "[0-9a-f]{40}"' src/tbd/version.py | grep -oE '[0-9a-f]{40}')
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Compare with upstream develop
+        id: cmp
+        run: |
+          upstream=$(git ls-remote https://github.com/rd2/tbd.git refs/heads/develop | cut -f1)
+          echo "upstream=$upstream" >> "$GITHUB_OUTPUT"
+          if [ "$upstream" = "${{ steps.pin.outputs.sha }}" ]; then
+            echo "behind=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "behind=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open/refresh tracking issue
+        if: steps.cmp.outputs.behind == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pinned = "${{ steps.pin.outputs.sha }}";
+            const upstream = "${{ steps.cmp.outputs.upstream }}";
+            const title = "Upstream rd2/tbd has advanced past the pinned revision";
+            const body = [
+              `The pinned revision \`${pinned}\` is behind rd2/tbd \`develop\` (\`${upstream}\`).`,
+              ``,
+              `Follow the update process in UPSTREAM.md: diff \`lib/tbd/*.rb\`, apply`,
+              `equivalent Python edits, regenerate goldens, and bump the pin.`,
+            ].join("\n");
+            const q = `repo:${context.repo.owner}/${context.repo.repo} in:title "${title}" state:open`;
+            const found = await github.rest.search.issuesAndPullRequests({ q });
+            if (found.data.total_count === 0) {
+              await github.rest.issues.create({ ...context.repo, title, body });
+            }
