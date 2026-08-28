@@ -20,8 +20,11 @@ classifiers = [
 ]
 dependencies = [
   "openstudio",
-  "oslg>=0.4.0",
-  "osut>=0.9.0",
+  # EXACT pins on this branch (btap review, 2026-08-28): the branch is a
+  # verification baseline, and a future osut/oslg release changing the
+  # installed engine without a consumer commit would defeat the SHA pin.
+  "oslg==0.4.0",
+  "osut==0.9.1",
   "py-topolys @ git+https://github.com/canmet-energy/py-topolys.git@364703051cb27fbe6a686f9764a996389bd0ad73",
   "jsonschema>=4",
 ]
