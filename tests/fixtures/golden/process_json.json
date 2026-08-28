@@ -28813,20 +28813,20 @@
       "Bulk Storage Left Wall": {
         "deratable": true,
         "heatloss": 117.869778,
-        "ratio": -83.555098,
-        "u": 0.039755
+        "ratio": -89.959877,
+        "u": 0.022717
       },
       "Bulk Storage Rear Wall": {
         "deratable": true,
         "heatloss": 62.280337,
-        "ratio": -79.187286,
-        "u": 0.039755
+        "ratio": -87.029634,
+        "u": 0.022717
       },
       "Bulk Storage Right Wall": {
         "deratable": true,
         "heatloss": 95.772856,
-        "ratio": -79.388832,
-        "u": 0.039755
+        "ratio": -87.167524,
+        "u": 0.022717
       },
       "Bulk Storage Roof": {
         "deratable": true,
@@ -28840,32 +28840,32 @@
       "Fine Storage Front Wall": {
         "deratable": true,
         "heatloss": 26.467225,
-        "ratio": -73.771595,
-        "u": 0.052471
+        "ratio": -86.815788,
+        "u": 0.022717
       },
       "Fine Storage Left Wall": {
         "deratable": true,
         "heatloss": 27.1879,
-        "ratio": -73.083942,
-        "u": 0.052471
+        "ratio": -86.407207,
+        "u": 0.022717
       },
       "Fine Storage Office Front Wall": {
         "deratable": true,
         "heatloss": 22.614174,
-        "ratio": -78.435787,
-        "u": 0.052471
+        "ratio": -89.490131,
+        "u": 0.022717
       },
       "Fine Storage Office Left Wall": {
         "deratable": true,
         "heatloss": 9.154896,
-        "ratio": -80.564059,
-        "u": 0.052471
+        "ratio": -90.65699,
+        "u": 0.022717
       },
       "Fine Storage Right Wall": {
         "deratable": true,
         "heatloss": 41.356511,
-        "ratio": -74.200216,
-        "u": 0.052471
+        "ratio": -87.068548,
+        "u": 0.022717
       },
       "Fine Storage Roof": {
         "deratable": true,
@@ -28879,14 +28879,14 @@
       "Office Front Wall": {
         "deratable": true,
         "heatloss": 50.200142,
-        "ratio": -97.909163,
-        "u": 0.009977
+        "ratio": -95.338534,
+        "u": 0.022717
       },
       "Office Left Wall": {
         "deratable": true,
         "heatloss": 24.064816,
-        "ratio": -98.520505,
-        "u": 0.009977
+        "ratio": -96.676413,
+        "u": 0.022717
       },
       "Office Rear Wall": {
         "deratable": false
@@ -34637,6 +34637,6 @@
         ]
       }
     ],
-    "wall_uo": 0.042191
+    "wall_uo": 0.022717
   }
 }

@@ -4,7 +4,7 @@
     "surfaces": {
       "Surface 1": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -148,7 +148,7 @@
       },
       "Surface 12": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -196,7 +196,7 @@
       },
       "Surface 13": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -244,7 +244,7 @@
       },
       "Surface 14": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -474,7 +474,7 @@
       },
       "Surface 18": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -522,7 +522,7 @@
       },
       "Surface 19": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -570,7 +570,7 @@
       },
       "Surface 2": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -656,7 +656,7 @@
       },
       "Surface 20": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -886,7 +886,7 @@
       },
       "Surface 24": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -934,7 +934,7 @@
       },
       "Surface 25": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -1222,7 +1222,7 @@
       },
       "Surface 30": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -1366,7 +1366,7 @@
       },
       "Surface 6": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -1414,7 +1414,7 @@
       },
       "Surface 7": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -1462,7 +1462,7 @@
       },
       "Surface 8": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -1601,7 +1601,7 @@
     "surfaces": {
       "BACK-1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -1731,7 +1731,7 @@
         "spandrel": false,
         "gross": 99.16000000000001,
         "net": 99.16000000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -1777,7 +1777,7 @@
         "spandrel": false,
         "gross": 99.16000000000001,
         "net": 99.16000000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -1821,7 +1821,7 @@
         "spandrel": false,
         "gross": 42.734999999999985,
         "net": 42.734999999999985,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -1867,7 +1867,7 @@
         "spandrel": false,
         "gross": 42.73499999999999,
         "net": 42.73499999999999,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -1911,7 +1911,7 @@
         "spandrel": false,
         "gross": 96.47999999999999,
         "net": 96.47999999999999,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -1957,7 +1957,7 @@
         "spandrel": false,
         "gross": 96.47999999999999,
         "net": 96.47999999999999,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -2001,7 +2001,7 @@
         "spandrel": false,
         "gross": 42.735,
         "net": 42.735,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -2047,7 +2047,7 @@
         "spandrel": false,
         "gross": 42.735,
         "net": 42.735,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -2091,7 +2091,7 @@
         "spandrel": false,
         "gross": 182.49,
         "net": 182.49,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -2137,7 +2137,7 @@
         "spandrel": false,
         "gross": 182.49,
         "net": 182.49,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 2.4,
         "r": 0.65225929,
         "index": 0,
@@ -2174,7 +2174,7 @@
       },
       "F1-1": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -2220,7 +2220,7 @@
       },
       "F2-1": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -2266,7 +2266,7 @@
       },
       "F3-1": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -2312,7 +2312,7 @@
       },
       "F4-1": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -2358,7 +2358,7 @@
       },
       "F5-1": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -2404,7 +2404,7 @@
       },
       "FRONT-1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -2527,7 +2527,7 @@
       },
       "LEFT-1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -2611,7 +2611,7 @@
       },
       "RIGHT-1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -3431,7 +3431,7 @@
       },
       "TOP-1": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": true,
@@ -3475,7 +3475,7 @@
       },
       "WALL-1PB": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": true,
@@ -3519,7 +3519,7 @@
       },
       "WALL-1PF": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": true,
@@ -3563,7 +3563,7 @@
       },
       "WALL-1PL": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": true,
@@ -3607,7 +3607,7 @@
       },
       "WALL-1PR": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": true,
@@ -3656,7 +3656,7 @@
     "surfaces": {
       "e_E_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -3702,7 +3702,7 @@
       },
       "e_N_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -3748,7 +3748,7 @@
       },
       "e_S_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -3794,7 +3794,7 @@
       },
       "e_W_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -3840,7 +3840,7 @@
       },
       "e_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -3932,7 +3932,7 @@
       },
       "e_top": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -3978,7 +3978,7 @@
       },
       "g_E_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4024,7 +4024,7 @@
       },
       "g_N_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4109,7 +4109,7 @@
       },
       "g_S1_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4155,7 +4155,7 @@
       },
       "g_S2_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4201,7 +4201,7 @@
       },
       "g_S3_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4286,7 +4286,7 @@
       },
       "g_W_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4339,7 +4339,7 @@
         "spandrel": false,
         "gross": 380.6400000000001,
         "net": 380.6400000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 44.0,
         "r": 2.631111111111111,
         "index": 1,
@@ -4378,7 +4378,7 @@
       },
       "g_top": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4462,7 +4462,7 @@
       },
       "p_E_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4508,7 +4508,7 @@
       },
       "p_N_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4554,7 +4554,7 @@
       },
       "p_S1_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4595,7 +4595,7 @@
       },
       "p_S2_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4646,7 +4646,7 @@
       },
       "p_W1_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4692,7 +4692,7 @@
       },
       "p_W2_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4738,7 +4738,7 @@
       },
       "p_W3_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4784,7 +4784,7 @@
       },
       "p_W4_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4876,7 +4876,7 @@
       },
       "p_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -4929,7 +4929,7 @@
         "spandrel": false,
         "gross": 380.6400000000001,
         "net": 380.6400000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 44.0,
         "r": 2.631111111111111,
         "index": 1,
@@ -4968,7 +4968,7 @@
       },
       "s_E_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5014,7 +5014,7 @@
       },
       "s_N_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5060,7 +5060,7 @@
       },
       "s_S_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5106,7 +5106,7 @@
       },
       "s_W_wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5152,7 +5152,7 @@
       },
       "s_floor": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5203,7 +5203,7 @@
     "surfaces": {
       "g Ceilin N1A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5251,7 +5251,7 @@
       },
       "g Ceilin N2A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5299,7 +5299,7 @@
       },
       "g Ceilin NEA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5347,7 +5347,7 @@
       },
       "g Ceilin NWA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5395,7 +5395,7 @@
       },
       "g Ceilin S1A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5443,7 +5443,7 @@
       },
       "g Ceilin S2A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5491,7 +5491,7 @@
       },
       "g Ceilin SEA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5539,7 +5539,7 @@
       },
       "g Ceilin SWA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -5587,7 +5587,7 @@
       },
       "g Ceiling C": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -6211,7 +6211,7 @@
       },
       "g EWall C": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -6297,7 +6297,7 @@
       },
       "g EWall NEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -6383,7 +6383,7 @@
       },
       "g EWall SEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -6469,7 +6469,7 @@
       },
       "g Floor C": {
         "type": "floor",
-        "boundary": "foundation",
+        "boundary": "Foundation",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6517,7 +6517,7 @@
       },
       "g GFloor N1A": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6565,7 +6565,7 @@
       },
       "g GFloor N2A": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6613,7 +6613,7 @@
       },
       "g GFloor NEA": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6661,7 +6661,7 @@
       },
       "g GFloor NWA": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6709,7 +6709,7 @@
       },
       "g GFloor S1A": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6757,7 +6757,7 @@
       },
       "g GFloor S2A": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6805,7 +6805,7 @@
       },
       "g GFloor SEA": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -6853,7 +6853,7 @@
       },
       "g GFloor SWA": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -7285,7 +7285,7 @@
       },
       "g NWall N1A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -7371,7 +7371,7 @@
       },
       "g NWall N2A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -7457,7 +7457,7 @@
       },
       "g NWall NEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -7543,7 +7543,7 @@
       },
       "g NWall NWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8013,7 +8013,7 @@
       },
       "g SWall S1A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8099,7 +8099,7 @@
       },
       "g SWall S2A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8185,7 +8185,7 @@
       },
       "g SWall SEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8271,7 +8271,7 @@
       },
       "g SWall SWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8357,7 +8357,7 @@
       },
       "g WWall C": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8405,7 +8405,7 @@
       },
       "g WWall NWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8491,7 +8491,7 @@
       },
       "g WWall SWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8577,7 +8577,7 @@
       },
       "m Ceilin N1A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8625,7 +8625,7 @@
       },
       "m Ceilin N2A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8673,7 +8673,7 @@
       },
       "m Ceilin NEA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8721,7 +8721,7 @@
       },
       "m Ceilin NWA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8769,7 +8769,7 @@
       },
       "m Ceilin S1A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8817,7 +8817,7 @@
       },
       "m Ceilin S2A": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8865,7 +8865,7 @@
       },
       "m Ceilin SEA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8913,7 +8913,7 @@
       },
       "m Ceilin SWA": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -8961,7 +8961,7 @@
       },
       "m Ceiling C": {
         "type": "ceiling",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -9585,7 +9585,7 @@
       },
       "m EWall C": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -9671,7 +9671,7 @@
       },
       "m EWall NEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -9757,7 +9757,7 @@
       },
       "m EWall SEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -9843,7 +9843,7 @@
       },
       "m Floor C": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -9891,7 +9891,7 @@
       },
       "m GFloor N1A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -9939,7 +9939,7 @@
       },
       "m GFloor N2A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -9987,7 +9987,7 @@
       },
       "m GFloor NEA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10035,7 +10035,7 @@
       },
       "m GFloor NWA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10083,7 +10083,7 @@
       },
       "m GFloor S1A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10131,7 +10131,7 @@
       },
       "m GFloor S2A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10179,7 +10179,7 @@
       },
       "m GFloor SEA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10227,7 +10227,7 @@
       },
       "m GFloor SWA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10659,7 +10659,7 @@
       },
       "m NWall N1A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10745,7 +10745,7 @@
       },
       "m NWall N2A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10831,7 +10831,7 @@
       },
       "m NWall NEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -10917,7 +10917,7 @@
       },
       "m NWall NWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -11387,7 +11387,7 @@
       },
       "m SWall S1A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -11473,7 +11473,7 @@
       },
       "m SWall S2A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -11559,7 +11559,7 @@
       },
       "m SWall SEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -11645,7 +11645,7 @@
       },
       "m SWall SWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -11731,7 +11731,7 @@
       },
       "m WWall C": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -11779,7 +11779,7 @@
       },
       "m WWall NWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -11865,7 +11865,7 @@
       },
       "m WWall SWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12527,7 +12527,7 @@
       },
       "t EWall C": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12613,7 +12613,7 @@
       },
       "t EWall NEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12699,7 +12699,7 @@
       },
       "t EWall SEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12785,7 +12785,7 @@
       },
       "t Floor C": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12833,7 +12833,7 @@
       },
       "t GFloor N1A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12881,7 +12881,7 @@
       },
       "t GFloor N2A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12929,7 +12929,7 @@
       },
       "t GFloor NEA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -12977,7 +12977,7 @@
       },
       "t GFloor NWA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13025,7 +13025,7 @@
       },
       "t GFloor S1A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13073,7 +13073,7 @@
       },
       "t GFloor S2A": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13121,7 +13121,7 @@
       },
       "t GFloor SEA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13169,7 +13169,7 @@
       },
       "t GFloor SWA": {
         "type": "floor",
-        "boundary": "adiabatic",
+        "boundary": "Adiabatic",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13601,7 +13601,7 @@
       },
       "t NWall N1A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13687,7 +13687,7 @@
       },
       "t NWall N2A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13773,7 +13773,7 @@
       },
       "t NWall NEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13859,7 +13859,7 @@
       },
       "t NWall NWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13945,7 +13945,7 @@
       },
       "t Roof C": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -13993,7 +13993,7 @@
       },
       "t Roof N1A": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14041,7 +14041,7 @@
       },
       "t Roof N2A": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14089,7 +14089,7 @@
       },
       "t Roof NEA": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14137,7 +14137,7 @@
       },
       "t Roof NWA": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14185,7 +14185,7 @@
       },
       "t Roof S1A": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14233,7 +14233,7 @@
       },
       "t Roof S2A": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14281,7 +14281,7 @@
       },
       "t Roof SEA": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14329,7 +14329,7 @@
       },
       "t Roof SWA": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14761,7 +14761,7 @@
       },
       "t SWall S1A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14847,7 +14847,7 @@
       },
       "t SWall S2A": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -14933,7 +14933,7 @@
       },
       "t SWall SEA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15019,7 +15019,7 @@
       },
       "t SWall SWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15105,7 +15105,7 @@
       },
       "t WWall C": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15153,7 +15153,7 @@
       },
       "t WWall NWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15239,7 +15239,7 @@
       },
       "t WWall SWA": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15337,7 +15337,7 @@
         "spandrel": false,
         "gross": 371.74807149,
         "net": 371.74807149,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.0488,
         "r": null,
         "index": null,
@@ -15377,7 +15377,7 @@
       },
       "Dining_Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -15424,7 +15424,7 @@
       },
       "Dining_Wall_East": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15565,7 +15565,7 @@
       },
       "Dining_Wall_South": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15612,7 +15612,7 @@
       },
       "Dining_Wall_West": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15666,7 +15666,7 @@
         "spandrel": false,
         "gross": 139.4052442,
         "net": 139.4052442,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.0488,
         "r": null,
         "index": null,
@@ -15706,7 +15706,7 @@
       },
       "Kitchen_Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -15753,7 +15753,7 @@
       },
       "Kitchen_Wall_East": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15800,7 +15800,7 @@
       },
       "Kitchen_Wall_North": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15847,7 +15847,7 @@
       },
       "Kitchen_Wall_West": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -15901,7 +15901,7 @@
         "spandrel": false,
         "gross": 371.74807149,
         "net": 371.74807149,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.0488,
         "r": null,
         "index": null,
@@ -15948,7 +15948,7 @@
         "spandrel": false,
         "gross": 139.4052442,
         "net": 139.4052442,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.0488,
         "r": null,
         "index": null,
@@ -15988,7 +15988,7 @@
       },
       "east-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -16035,7 +16035,7 @@
       },
       "north-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -16077,7 +16077,7 @@
       },
       "south-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -16119,7 +16119,7 @@
       },
       "west-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -16178,7 +16178,7 @@
         "spandrel": false,
         "gross": 371.74807149,
         "net": 371.74807149,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.0488,
         "r": 0.216479986995276,
         "index": 0,
@@ -16219,7 +16219,7 @@
       },
       "Dining_Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -16267,7 +16267,7 @@
       },
       "Dining_Wall_East": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -16449,7 +16449,7 @@
       },
       "Dining_Wall_South": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -16535,7 +16535,7 @@
       },
       "Dining_Wall_West": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -16628,7 +16628,7 @@
         "spandrel": false,
         "gross": 139.4052442,
         "net": 139.4052442,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.0488,
         "r": 0.216479986995276,
         "index": 0,
@@ -16669,7 +16669,7 @@
       },
       "Kitchen_Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -16717,7 +16717,7 @@
       },
       "Kitchen_Wall_East": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -16765,7 +16765,7 @@
       },
       "Kitchen_Wall_North": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -16813,7 +16813,7 @@
       },
       "Kitchen_Wall_West": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -16868,7 +16868,7 @@
         "spandrel": false,
         "gross": 371.74807149,
         "net": 371.74807149,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.0488,
         "r": 0.216479986995276,
         "index": 1,
@@ -16914,7 +16914,7 @@
         "spandrel": false,
         "gross": 139.4052442,
         "net": 139.4052442,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.0488,
         "r": 0.216479986995276,
         "index": 1,
@@ -16953,7 +16953,7 @@
       },
       "east-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -16999,7 +16999,7 @@
       },
       "north-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -17040,7 +17040,7 @@
       },
       "south-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -17081,7 +17081,7 @@
       },
       "west-roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -17139,7 +17139,7 @@
         "spandrel": false,
         "gross": 12.451265836781007,
         "net": 12.451265836781007,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -17190,7 +17190,7 @@
       },
       "Entry way  Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -17392,7 +17392,7 @@
       },
       "Entryway  Wall 4": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -17478,7 +17478,7 @@
       },
       "Entryway  Wall 5": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -17564,7 +17564,7 @@
       },
       "Entryway  Wall 6": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -17657,7 +17657,7 @@
         "spandrel": false,
         "gross": 12.451265836781007,
         "net": 12.451265836781007,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -17708,7 +17708,7 @@
       },
       "Level 0 Entry way  Ceiling Plenum RoofCeiling": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -17773,7 +17773,7 @@
         "spandrel": false,
         "gross": 35.65336778844473,
         "net": 35.65336778844473,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -17844,7 +17844,7 @@
       },
       "Level 0 Open area 1 Ceiling Plenum RoofCeiling": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -17929,7 +17929,7 @@
         "spandrel": false,
         "gross": 17.6670747627257,
         "net": 17.6670747627257,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -17980,7 +17980,7 @@
       },
       "Level 0 Small office 1 Ceiling Plenum RoofCeiling": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18045,7 +18045,7 @@
         "spandrel": false,
         "gross": 16.437596917606,
         "net": 16.437596917606,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -18091,7 +18091,7 @@
       },
       "Level 0 Utility 1 Ceiling Plenum RoofCeiling": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18144,7 +18144,7 @@
       },
       "Level0 Entry way  Ceiling Plenum AbvClgPlnmWall 4": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18192,7 +18192,7 @@
       },
       "Level0 Entry way  Ceiling Plenum AbvClgPlnmWall 5": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18240,7 +18240,7 @@
       },
       "Level0 Entry way  Ceiling Plenum AbvClgPlnmWall 6": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18288,7 +18288,7 @@
       },
       "Level0 Open area 1 Ceiling Plenum AbvClgPlnmWall 3": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18336,7 +18336,7 @@
       },
       "Level0 Open area 1 Ceiling Plenum AbvClgPlnmWall 4": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18384,7 +18384,7 @@
       },
       "Level0 Open area 1 Ceiling Plenum AbvClgPlnmWall 5": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18432,7 +18432,7 @@
       },
       "Level0 Open area 1 Ceiling Plenum AbvClgPlnmWall 6": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18480,7 +18480,7 @@
       },
       "Level0 Open area 1 Ceiling Plenum AbvClgPlnmWall 7": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18528,7 +18528,7 @@
       },
       "Level0 Small office 1 Ceiling Plenum AbvClgPlnmWall 1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18576,7 +18576,7 @@
       },
       "Level0 Small office 1 Ceiling Plenum AbvClgPlnmWall 2": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18624,7 +18624,7 @@
       },
       "Level0 Small office 1 Ceiling Plenum AbvClgPlnmWall 6": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18672,7 +18672,7 @@
       },
       "Level0 Utility 1 Ceiling Plenum AbvClgPlnmWall 1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18720,7 +18720,7 @@
       },
       "Level0 Utility 1 Ceiling Plenum AbvClgPlnmWall 5": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": false,
@@ -18775,7 +18775,7 @@
         "spandrel": false,
         "gross": 35.65336778844473,
         "net": 35.65336778844473,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -18846,7 +18846,7 @@
       },
       "Open area 1 Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -19068,7 +19068,7 @@
       },
       "Openarea 1 Wall 3": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19116,7 +19116,7 @@
       },
       "Openarea 1 Wall 4": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19164,7 +19164,7 @@
       },
       "Openarea 1 Wall 5": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19212,7 +19212,7 @@
       },
       "Openarea 1 Wall 6": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19260,7 +19260,7 @@
       },
       "Openarea 1 Wall 7": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19411,7 +19411,7 @@
         "spandrel": false,
         "gross": 17.6670747627257,
         "net": 17.6670747627257,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -19462,7 +19462,7 @@
       },
       "Small office 1 Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -19520,7 +19520,7 @@
       },
       "Smalloffice 1 Wall 1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19606,7 +19606,7 @@
       },
       "Smalloffice 1 Wall 2": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19836,7 +19836,7 @@
       },
       "Smalloffice 1 Wall 6": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -19929,7 +19929,7 @@
         "spandrel": false,
         "gross": 16.437596917606,
         "net": 16.437596917606,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.3528,
         "r": 0.1190625,
         "index": 0,
@@ -19975,7 +19975,7 @@
       },
       "Utility 1 Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -20028,7 +20028,7 @@
       },
       "Utility1 Wall 1": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -20258,7 +20258,7 @@
       },
       "Utility1 Wall 5": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -20356,7 +20356,7 @@
         "spandrel": false,
         "gross": 149.65740000000002,
         "net": 149.65740000000002,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -20401,7 +20401,7 @@
         "spandrel": false,
         "gross": 67.30000000000001,
         "net": 67.30000000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -20446,7 +20446,7 @@
         "spandrel": false,
         "gross": 113.45000000000002,
         "net": 113.45000000000002,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -20491,7 +20491,7 @@
         "spandrel": false,
         "gross": 113.44999999999999,
         "net": 113.44999999999999,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -20536,7 +20536,7 @@
         "spandrel": false,
         "gross": 67.30000000000001,
         "net": 67.30000000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -20574,7 +20574,7 @@
       },
       "Attic_roof_east": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20614,7 +20614,7 @@
       },
       "Attic_roof_north": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20659,7 +20659,7 @@
       },
       "Attic_roof_south": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20704,7 +20704,7 @@
       },
       "Attic_roof_west": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20744,7 +20744,7 @@
       },
       "Attic_soffit_east": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20789,7 +20789,7 @@
       },
       "Attic_soffit_north": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20834,7 +20834,7 @@
       },
       "Attic_soffit_south": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20879,7 +20879,7 @@
       },
       "Attic_soffit_west": {
         "type": "floor",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": false,
         "occupied": false,
@@ -20931,7 +20931,7 @@
         "spandrel": false,
         "gross": 149.65740000000002,
         "net": 149.65740000000002,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -20972,7 +20972,7 @@
       },
       "Core_ZN_floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -21219,7 +21219,7 @@
         "spandrel": false,
         "gross": 113.45000000000002,
         "net": 113.45000000000002,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -21260,7 +21260,7 @@
       },
       "Perimeter_ZN_1_floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -21404,7 +21404,7 @@
       },
       "Perimeter_ZN_1_wall_south": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -21764,7 +21764,7 @@
         "spandrel": false,
         "gross": 67.30000000000001,
         "net": 67.30000000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -21805,7 +21805,7 @@
       },
       "Perimeter_ZN_2_floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -21853,7 +21853,7 @@
       },
       "Perimeter_ZN_2_wall_east": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -22198,7 +22198,7 @@
         "spandrel": false,
         "gross": 113.44999999999999,
         "net": 113.44999999999999,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -22239,7 +22239,7 @@
       },
       "Perimeter_ZN_3_floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -22335,7 +22335,7 @@
       },
       "Perimeter_ZN_3_wall_north": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -22704,7 +22704,7 @@
         "spandrel": false,
         "gross": 67.30000000000001,
         "net": 67.30000000000001,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 3.05,
         "r": 6.23478649910089,
         "index": 1,
@@ -22745,7 +22745,7 @@
       },
       "Perimeter_ZN_4_floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -22937,7 +22937,7 @@
       },
       "Perimeter_ZN_4_wall_west": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -23136,7 +23136,7 @@
     "surfaces": {
       "Bulk Storage Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -23279,7 +23279,7 @@
       },
       "Bulk Storage Left Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -23581,7 +23581,7 @@
       },
       "Bulk Storage Rear Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -23629,7 +23629,7 @@
       },
       "Bulk Storage Right Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -23787,7 +23787,7 @@
       },
       "Bulk Storage Roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -24989,7 +24989,7 @@
       },
       "Fine Storage Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -25046,7 +25046,7 @@
       },
       "Fine Storage Front Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -25094,7 +25094,7 @@
       },
       "Fine Storage Left Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -25180,7 +25180,7 @@
       },
       "Fine Storage Office Front Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -25228,7 +25228,7 @@
       },
       "Fine Storage Office Left Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -25276,7 +25276,7 @@
       },
       "Fine Storage Right Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -25362,7 +25362,7 @@
       },
       "Fine Storage Roof": {
         "type": "ceiling",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -25916,7 +25916,7 @@
       },
       "Office Floor": {
         "type": "floor",
-        "boundary": "ground",
+        "boundary": "Ground",
         "ground": true,
         "conditioned": true,
         "occupied": true,
@@ -25963,7 +25963,7 @@
       },
       "Office Front Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -26123,7 +26123,7 @@
       },
       "Office Left Wall": {
         "type": "wall",
-        "boundary": "outdoors",
+        "boundary": "Outdoors",
         "ground": false,
         "conditioned": true,
         "occupied": true,
@@ -26482,7 +26482,7 @@
         "spandrel": false,
         "gross": 236.87964658059664,
         "net": 236.87964658059664,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.212085243272966,
         "minz": 4.26699190227003,
         "r": 0.21648,
         "index": 0,
@@ -26530,7 +26530,7 @@
         "spandrel": false,
         "gross": 236.87964658059664,
         "net": 236.87964658059664,
-        "filmRSI": 0.2664972172663424,
+        "filmRSI": 0.32090919125971884,
         "minz": 4.26699190227003,
         "r": 0.21648,
         "index": 1,

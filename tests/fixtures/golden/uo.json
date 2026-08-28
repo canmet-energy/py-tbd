@@ -12,8 +12,11 @@
       "film": 0.15,
       "hloss": 5.0,
       "ut": 0.21,
-      "result_uo": 0.1627572278135306,
-      "final_rsi": 6.144120377533651
+      "result_uo": {
+        "uo": null,
+        "m": null
+      },
+      "final_rsi": 3.15
     },
     {
       "id": "C2",
@@ -32,8 +35,11 @@
       "film": 0.12,
       "hloss": 3.0,
       "ut": 0.18,
-      "result_uo": 0.14471853489574424,
-      "final_rsi": 6.909964924122565
+      "result_uo": {
+        "uo": null,
+        "m": null
+      },
+      "final_rsi": 3.184935064935065
     },
     {
       "id": "C3",
@@ -48,8 +54,11 @@
       "film": 0.16,
       "hloss": 2.0,
       "ut": 0.25,
-      "result_uo": 0.21290810741193925,
-      "final_rsi": 4.696862003780712
+      "result_uo": {
+        "uo": null,
+        "m": null
+      },
+      "final_rsi": 3.493333333333334
     },
     {
       "id": "C4",
@@ -63,8 +72,11 @@
       "film": 0.2,
       "hloss": 500.0,
       "ut": 0.2,
-      "result_uo": 0.00998003992015968,
-      "final_rsi": 100.2
+      "result_uo": {
+        "uo": null,
+        "m": null
+      },
+      "final_rsi": 5.2
     },
     {
       "id": "C5",
@@ -79,8 +91,11 @@
       "film": 0.14,
       "hloss": 8.0,
       "ut": 0.15,
-      "result_uo": 0.0855147097411415,
-      "final_rsi": 11.69389457120376
+      "result_uo": {
+        "uo": null,
+        "m": null
+      },
+      "final_rsi": 5.14
     }
   ]
 }

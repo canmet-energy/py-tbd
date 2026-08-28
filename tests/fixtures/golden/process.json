@@ -840,8 +840,8 @@
       "C1-1": {
         "deratable": true,
         "heatloss": 5.792357,
-        "ratio": -2.605669,
-        "u": 1.088428
+        "ratio": -2.7697,
+        "u": 1.156946
       },
       "C1-1P": {
         "deratable": false
@@ -849,8 +849,8 @@
       "C2-1": {
         "deratable": true,
         "heatloss": 2.886683,
-        "ratio": -2.995921,
-        "u": 1.088428
+        "ratio": -3.18452,
+        "u": 1.156946
       },
       "C2-1P": {
         "deratable": false
@@ -858,8 +858,8 @@
       "C3-1": {
         "deratable": true,
         "heatloss": 5.792357,
-        "ratio": -2.675321,
-        "u": 1.088428
+        "ratio": -2.843737,
+        "u": 1.156946
       },
       "C3-1P": {
         "deratable": false
@@ -867,8 +867,8 @@
       "C4-1": {
         "deratable": true,
         "heatloss": 2.886683,
-        "ratio": -2.995921,
-        "u": 1.088428
+        "ratio": -3.18452,
+        "u": 1.156946
       },
       "C4-1P": {
         "deratable": false
@@ -876,7 +876,7 @@
       "C5-1": {
         "deratable": true,
         "heatloss": 0.0,
-        "u": 1.088428
+        "u": 1.156946
       },
       "C5-1P": {
         "deratable": false
@@ -9845,8 +9845,8 @@
       "Dining_Ceiling": {
         "deratable": true,
         "heatloss": 2.041595,
-        "ratio": -0.048782,
-        "u": 1.897678
+        "ratio": -0.054399,
+        "u": 2.116188
       },
       "Dining_Floor": {
         "deratable": false
@@ -9878,8 +9878,8 @@
       "Kitchen_Ceiling": {
         "deratable": true,
         "heatloss": 1.285447,
-        "ratio": -0.08184,
-        "u": 1.897678
+        "ratio": -0.091264,
+        "u": 2.116188
       },
       "Kitchen_Floor": {
         "deratable": false
@@ -12900,7 +12900,7 @@
       "Core_ZN_ceiling": {
         "deratable": true,
         "heatloss": 0.0,
-        "u": 0.1515
+        "u": 0.152759
       },
       "Core_ZN_floor": {
         "deratable": false
@@ -12920,8 +12920,8 @@
       "Perimeter_ZN_1_ceiling": {
         "deratable": true,
         "heatloss": 20.223071,
-        "ratio": -49.720014,
-        "u": 0.1515
+        "ratio": -50.133284,
+        "u": 0.152759
       },
       "Perimeter_ZN_1_floor": {
         "deratable": false
@@ -12944,8 +12944,8 @@
       "Perimeter_ZN_2_ceiling": {
         "deratable": true,
         "heatloss": 13.41853,
-        "ratio": -52.347283,
-        "u": 0.1515
+        "ratio": -52.78239,
+        "u": 0.152759
       },
       "Perimeter_ZN_2_floor": {
         "deratable": false
@@ -12968,8 +12968,8 @@
       "Perimeter_ZN_3_ceiling": {
         "deratable": true,
         "heatloss": 20.105477,
-        "ratio": -49.582663,
-        "u": 0.1515
+        "ratio": -49.994791,
+        "u": 0.152759
       },
       "Perimeter_ZN_3_floor": {
         "deratable": false
@@ -12992,8 +12992,8 @@
       "Perimeter_ZN_4_ceiling": {
         "deratable": true,
         "heatloss": 13.41853,
-        "ratio": -52.347283,
-        "u": 0.1515
+        "ratio": -52.78239,
+        "u": 0.152759
       },
       "Perimeter_ZN_4_floor": {
         "deratable": false

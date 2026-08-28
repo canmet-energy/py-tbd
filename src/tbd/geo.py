@@ -438,16 +438,17 @@ def properties(surface=None, argh=None):
         return oslg.invalid("%s normal" % nom, mth, 0, ERR)
 
     type = surface.surfaceType().lower()
-    facing = surface.outsideBoundaryCondition().lower()
-    interz = False
+    # 3.5.2 keeps the SDK's boundary-condition casing ("Outdoors"/"Ground");
+    # consumers downcase at each comparison. Lowercasing here (and the
+    # interzone film override below it) are 3.6.0 additions.
+    facing = surface.outsideBoundaryCondition()
     setpts = osut.setpoints(space)
 
-    if facing == "surface":
+    if facing.lower() == "surface":
         adj = surface.adjacentSurface()
         if adj.empty():
             return oslg.invalid("%s: adjacent surface" % nom, mth, 0, ERR)
         facing = adj.get().nameString()
-        interz = True
 
     if not surface.construction().empty():
         lc = surface.construction().get().to_LayeredConstruction()
@@ -500,12 +501,6 @@ def properties(surface=None, argh=None):
     surf["gross"] = surface.grossArea()
     surf["spandrel"] = osut.areSpandrels(surface)
     surf["filmRSI"] = surface.filmResistance()
-
-    if interz:
-        typ = "ceiling"  # interzone roof or ceiling
-        if surf["type"] == "wall":
-            typ = "partition"
-        surf["filmRSI"] = osut.filmResistances(typ, surface.tilt())
 
     for s in sorted(surface.subSurfaces(), key=lambda x: x.nameString()):
         if len(osut.poly(s)) == 0:
@@ -749,7 +744,7 @@ def kiva(model=None, walls=None, floors=None, edges=None):
         for id in list(edge["surfaces"].keys()):
             if id not in floors:
                 continue
-            if floors[id]["boundary"] != "foundation":
+            if floors[id]["boundary"].lower() != "foundation":
                 continue
             if "kiva" in floors[id]:
                 continue
@@ -766,7 +761,7 @@ def kiva(model=None, walls=None, floors=None, edges=None):
                     continue
                 if i not in walls:
                     continue
-                if walls[i]["boundary"] != "foundation":
+                if walls[i]["boundary"].lower() != "foundation":
                     continue
                 if "kiva" in walls[i]:
                     continue
@@ -780,7 +775,7 @@ def kiva(model=None, walls=None, floors=None, edges=None):
                     continue
                 if i not in walls:
                     continue
-                if walls[i]["boundary"] != "outdoors":
+                if walls[i]["boundary"].lower() != "outdoors":
                     continue
                 floors[id]["exposed"] += edge["length"]
 
@@ -796,7 +791,7 @@ def kiva(model=None, walls=None, floors=None, edges=None):
                             continue
                         if ii not in walls:
                             continue
-                        if walls[ii]["boundary"] != "foundation":
+                        if walls[ii]["boundary"].lower() != "foundation":
                             continue
                         if "kiva" in walls[ii]:
                             continue
@@ -809,7 +804,7 @@ def kiva(model=None, walls=None, floors=None, edges=None):
                             continue
                         if ii not in walls:
                             continue
-                        if walls[ii]["boundary"] != "outdoors":
+                        if walls[ii]["boundary"].lower() != "outdoors":
                             continue
                         floors[id]["exposed"] += e["length"]
 

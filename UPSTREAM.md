@@ -3,15 +3,44 @@
 `py-tbd` is a line-for-line native Python port of the **TBD** Ruby gem. This file
 records exactly which upstream revision the port mirrors and how to advance it.
 
-## Pinned revision
+## Pinned revision — THE `tbd-3.5.2-compat` BRANCH
 
 | | |
 |---|---|
 | Upstream repo | https://github.com/rd2/tbd |
-| Branch | `develop` |
-| **Commit** | **`dd6f12f8f2c24950485918c7eaca57d8f091a64d`** |
-| Upstream version | `3.6.0` |
-| Pinned on | 2026-08-25 |
+| Tag | `v3.5.2` |
+| **Commit** | **`95156a922f54e45293e1896eba11bc29cd1b5c6d`** |
+| Upstream version | `3.5.2` |
+| Pinned on | 2026-08-28 |
+
+**Why this branch exists.** `main` ports upstream v3.6.0. The canmet-energy
+btap family's verification oracle (D-78/D-79) is FROZEN on the Ruby triplet
+TBD 3.5.2 / OSut 0.8.2 / Topolys 0.6.2, and 3.5.2 vs 3.6.0 is a
+physical-output difference, not serialization noise: 3.5.2 REFUSES an
+infeasible construction uprate outright ("Unable to uprate ...", model left
+as-is) where 3.6.0 partially uprates — landing ~43% apart on the same wall.
+This branch backports the v3.5.2 semantics so btap can integrate py-tbd
+against its frozen baseline (Option A of btap's M7 review); retire it when
+the btap family deliberately rebaselines on 3.6.x.
+
+The backported deltas, each verified against the Ruby 3.5.2 gem:
+
+- `ua.py` `uo()`/`uprate()` — 3.5.2 signatures and semantics: `uo(model, lc,
+  id, hloss, film, ut) -> {"uo":, "m":}` with hard refusal (the
+  "Zero ... new Rsi" warning) instead of 3.6.0's clamp-and-continue;
+  `uprate()` merges each surface type onto the LARGEST-area construction
+  with the LOWEST film (3.6.0 uprates per construction with area-weighted
+  films) and logs 3.5.2's exact warning texts.
+- `geo.py` — `surf["boundary"]` keeps the SDK's casing ("Outdoors", not
+  "outdoors"); consumers downcase at comparison, as 3.5.2 does. The
+  interzone film override (`osut.filmResistances(...)`) is a 3.6.0 addition
+  and is removed: films are always `surface.filmResistance()`.
+- `ua.py` UA' banner reports the branch version (`v3.5.2`).
+
+Every golden under `tests/fixtures/golden/` on this branch is REGENERATED
+from Ruby TBD 3.5.2 + OSut 0.8.2 + Topolys 0.6.2 (`OSUT_VERSION=0.8.2`
+through the same `tools/gen_golden_*.rb` harnesses); the full suite passes
+against them (156 tests).
 
 The same values are exported programmatically from `src/tbd/version.py`
 (`UPSTREAM_SHA`, `UPSTREAM_VERSION`) and asserted by `tests/unit/test_version.py`.

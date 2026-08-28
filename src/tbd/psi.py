@@ -1223,7 +1223,7 @@ def process(model=None, argh=None):
             continue
         if surface["ground"]:
             continue
-        if surface["boundary"] != "outdoors":
+        if surface["boundary"].lower() != "outdoors":
             if surface["boundary"] not in tbd["surfaces"]:
                 continue
             if tbd["surfaces"][surface["boundary"]]["conditioned"]:
@@ -1871,7 +1871,7 @@ def _classify_edges(model, tbd, edges, holes, shades, floors, ceilings, walls,
                     continue
                 if i in holes or i in shades:
                     continue
-                if surfaces[i]["boundary"] != "othersidecoefficients":
+                if surfaces[i]["boundary"].lower() != "othersidecoefficients":
                     continue
                 s1 = edge["surfaces"][id]
                 s2 = edge["surfaces"][i]

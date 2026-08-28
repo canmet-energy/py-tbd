@@ -15,6 +15,7 @@ import datetime
 from ._helpers import oslg, osut, DBG, INF, WRN, ERR, TOL, UMIN, UMAX
 from ._helpers import RMIN, KMIN, KMAX, DMIN, DMAX
 from .psi import PSI
+from .version import VERSION
 
 
 def _clamp(x, lo, hi):
@@ -26,38 +27,47 @@ def _is_num(x):
     """True for real numbers (excludes bool), mirroring Ruby is_a?(Numeric)."""
     return isinstance(x, (int, float)) and not isinstance(x, bool)
 
+def _div(numerator, denominator):
+    """Ruby float division for the uprate math: never raises — x/0.0 is
+    +/-Infinity (the RMIN guard then refuses, exactly as Ruby's does)."""
+    try:
+        return numerator / denominator
+    except ZeroDivisionError:
+        return float("inf") if numerator > 0 else (float("-inf") if numerator < 0 else float("nan"))
 
-def uo(id="", lc=None, area=0, film=0, hloss=0, ut=0):
+
+def uo(model=None, lc=None, id="", hloss=0.0, film=0.0, ut=0.0):
     """Compute (and apply) the nominal Uo a construction needs to meet a target Ut.
 
-    Faithful port of TBD.uo. Clones and rewrites the construction's insulating
-    layer so the assembly meets `ut` [W/m2K] while offsetting `hloss` [W/K] of
-    thermal-bridge heat loss over `area` [m2], given target film resistance
-    `film`. Returns the achieved Uo (0 on error, UMIN if it can't be met).
+    Faithful port of TBD 3.5.2's TBD.uo (upstream v3.5.2, ua.rb): clones and
+    rewrites the construction's insulating layer so the assembly meets `ut`
+    [W/m2K] while offsetting `hloss` [W/K] of thermal-bridge heat loss, given
+    target film resistance `film`. Returns {"uo": achieved Uo, "m": the new
+    material} — both None on refusal. 3.5.2 REFUSES an infeasible uprate
+    outright (the "Zero ... new Rsi" warning) where 3.6.0 partially uprates;
+    that refusal is this branch's reason to exist (see UPSTREAM.md).
     """
     mth = "TBD::uo"
-    cl1 = _lc_class()
+    res = {"uo": None, "m": None}
+    cl1 = _model_class()
+    cl2 = _lc_class()
     id = oslg.trim(id)
+    if not isinstance(model, cl1):
+        return oslg.mismatch("model", model, cl1, mth, DBG, res)
     if id == "":
-        return oslg.mismatch("id", id, str, mth, DBG, 0)
-    if not isinstance(lc, cl1):
-        return oslg.mismatch("lc", lc, cl1, mth, DBG, 0)
-    if not _is_num(area):
-        return oslg.mismatch("area", area, float, mth, DBG, 0)
-    if not _is_num(film):
-        return oslg.mismatch("film", film, float, mth, DBG, 0)
+        return oslg.mismatch("id", id, str, mth, DBG, res)
+    if not isinstance(lc, cl2):
+        return oslg.mismatch("lc", lc, cl2, mth, DBG, res)
     if not _is_num(hloss):
-        return oslg.mismatch("hloss", hloss, float, mth, DBG, 0)
+        return oslg.mismatch("hloss", hloss, float, mth, DBG, res)
+    if not _is_num(film):
+        return oslg.mismatch("film", film, float, mth, DBG, res)
     if not _is_num(ut):
-        return oslg.mismatch("Ut", ut, float, mth, DBG, 0)
+        return oslg.mismatch("Ut", ut, float, mth, DBG, res)
 
-    model = lc.model()
-    loss = 0
+    loss = 0.0  # residual heatloss (not assigned) [W/K]
+    area = lc.getNetArea()
     lyr = osut.insulatingLayer(lc)
-
-    # Validate the insulating-layer index. (Upstream chains `nil >= 0` guards
-    # that would raise on a nil index; here we short-circuit to the same
-    # invalid-layer outcome without the exception.)
     idx = lyr["index"]
     if not _is_num(idx):
         idx = None
@@ -66,108 +76,110 @@ def uo(id="", lc=None, area=0, film=0, hloss=0, ut=0):
     if idx is not None and not (idx < len(lc.layers())):
         idx = None
     if idx is None:
-        return oslg.invalid("%s layer index" % id, mth, 3, DBG, 0)
-    if not (area > TOL):
-        return oslg.zero("%s: net area (m2)" % id, mth, DBG, 0)
-    if film < 0:
-        return oslg.negative("%s: film RSI" % id, mth, DBG, 0)
-    if hloss < TOL:
-        return oslg.zero("%s: heatloss" % id, mth, DBG, 0)
+        return oslg.invalid("%s layer index" % id, mth, 3, WRN, res)
+    if not (hloss > TOL):
+        return oslg.zero("%s: heatloss" % id, mth, WRN, res)
+    if not (film > TOL):
+        return oslg.zero("%s: films" % id, mth, WRN, res)
     if not (ut > UMIN):
-        return oslg.zero("%s: Ut" % id, mth, DBG, 0)
+        return oslg.zero("%s: Ut" % id, mth, WRN, res)
     if not (ut < UMAX):
-        return oslg.invalid("%s: Ut" % id, mth, 4, DBG, 0)
+        return oslg.invalid("%s: Ut" % id, mth, 6, WRN, res)
+    if not (area > TOL):
+        return oslg.zero("%s: net area (m2)" % id, mth, WRN, res)
 
-    # Initial (un-derated) layer RSi that would meet Ut before bridging.
-    rt = 1 / ut            # target construction Rt
-    r0 = osut.rsi(lc, film)  # current construction R0
-    r = lyr["r"] + rt - r0  # new layer RSi
+    # First, calculate initial layer RSi to initially meet Ut target.
+    rt = _div(1, ut)             # target construction Rt
+    ro = osut.rsi(lc, film)      # current construction Ro
+    new_r = lyr["r"] + (rt - ro)  # new, un-derated layer RSi
+    new_u = _div(1, new_r)
 
-    if r < 0:
-        oslg.zero("%s: layer RSI" % id, mth, INF)
-        r = RMIN
-
-    # Uprate further to counter the thermal-bridge heat loss.
-    u = 1 / r
-    u -= hloss / area
-
-    if u < UMIN:
-        oslg.negative("%s: new Uo" % id, mth, INF)
-        u = UMIN
-
-    r = 1 / u
+    # Then, uprate (if possible) to counter expected thermal bridging effects.
+    u_psi = _div(hloss, area)    # from psi+khi
+    new_u -= u_psi               # uprated layer USi to counter psi+khi
+    new_r = _div(1, new_u)       # uprated layer RSi to counter psi+khi
+    if not (new_r > RMIN):
+        return oslg.zero("%s: new Rsi" % id, mth, WRN, res)
 
     if lyr["type"] == "massless":
         m = lc.getLayer(idx).to_MasslessOpaqueMaterial()
         if m.empty():
-            return oslg.invalid("%s massless layer?" % id, mth, 0, DBG, 0)
+            return oslg.invalid("%s massless layer?" % id, mth, 0, DBG, res)
+
         m = m.get().clone(model).to_MasslessOpaqueMaterial().get()
         m.setName("%s uprated" % id)
 
-        if r < RMIN:
-            r = RMIN
-            loss = (u - 1 / r) * area  # residual heat loss we couldn't place
+        if not (new_r > RMIN):
+            new_r = RMIN
+            loss = (new_u - _div(1, new_r)) * area
 
-        if not m.setThermalResistance(r):
-            return oslg.invalid("Can't uprate %s: RSi%s" % (id, round(r, 2)), mth, 0, DBG, 0)
+        if not m.setThermalResistance(new_r):
+            return oslg.invalid("Can't uprate %s: RSi%s" % (id, round(new_r, 2)), mth, 0, DBG, res)
     else:
         m = lc.getLayer(idx).to_StandardOpaqueMaterial()
         if m.empty():
-            return oslg.invalid("%s standard layer?" % id, mth, 0, DBG, 0)
+            return oslg.invalid("%s standard layer?" % id, mth, 0, DBG, res)
+
         m = m.get().clone(model).to_StandardOpaqueMaterial().get()
         m.setName("%s uprated" % id)
 
         d = m.thickness()
-        k = _clamp(d / r, KMIN, KMAX)
-        d = _clamp(k * r, DMIN, DMAX)
+        k = _clamp(_div(d, new_r), KMIN, KMAX)
+        d = _clamp(k * new_r, DMIN, DMAX)
 
-        if d / k < RMIN:
-            loss = (u - k / d) * area
+        if not (_div(d, k) > RMIN):
+            loss = (new_u - _div(k, d)) * area
 
         if not m.setThermalConductivity(k):
-            return oslg.invalid("Can't uprate %s: K%s" % (id, round(k, 3)), mth, 0, DBG, 0)
+            return oslg.invalid("Can't uprate %s: K%s" % (id, round(k, 3)), mth, 0, DBG, res)
+
         if not m.setThickness(d):
-            return oslg.invalid("Can't uprate %s: %dmm" % (id, int(d * 1000)), mth, 0, DBG, 0)
+            return oslg.invalid("Can't uprate %s: %dmm" % (id, int(d * 1000)), mth, 0, DBG, res)
 
     if not m:
-        return oslg.invalid("Can't ID insulating layer", mth, 0, DBG, 0)
+        return oslg.invalid("Can't ID insulating layer", mth, 0, DBG, res)
 
     lc.setLayer(idx, m)
-    ro = osut.rsi(lc, film)
-    uo_val = UMIN if ro < RMIN else 1 / ro
+    uo_val = _div(1, osut.rsi(lc, film))
 
     if loss > TOL:
-        oslg.log(INF, "Can't set %s W/K to %s %s" % ("%.3f" % loss, id, mth))
+        h_loss = "%.3f" % loss
+        return oslg.invalid("Can't assign %s W/K to %s" % (h_loss, id), mth, 0, DBG, res)
 
-    return uo_val
+    res["uo"] = uo_val
+    res["m"] = m
+
+    return res
 
 
 def uprate(model=None, s=None, argh=None):
     """Uprate wall/roof/floor insulation layers to user-selected Ut targets.
 
-    Faithful port of TBD.uprate. Groups deratable surfaces by construction,
-    clones shared constructions that also span non-targeted surfaces, computes
-    an area-weighted film resistance per construction and calls uo(), then writes
-    back area-weighted uprated Uo per type into argh (wall_uo/roof_uo/floor_uo).
-    Returns True (False on invalid input, logged).
+    Faithful port of TBD 3.5.2's TBD.uprate (upstream v3.5.2, ua.rb). Per
+    surface type: retain the construction covering the LARGEST area and the
+    LOWEST surface film resistance, reassign/merge every other same-type
+    deratable construction onto it (cloning it away from non-targeted
+    surfaces that share it), tally the total psi+khi heat loss, and make ONE
+    uo() call for the merged construction. An infeasible uprate is REFUSED
+    ("Unable to uprate ...") and the construction left as modeled — 3.6.0
+    instead uprates each construction separately (area-weighted films) and
+    partially uprates infeasible ones. Returns True (False on invalid input).
     """
     mth = "TBD::uprate"
     cl1 = _model_class()
+    cl2 = dict
     cl3 = _lc_class()
-    # The three "all X constructions" sentinels that mean "uprate every one".
     tout = ["all wall constructions", "all roof constructions", "all floor constructions"]
     a = False
     groups = {"wall": {}, "roof": {}, "floor": {}}
-    if s is None:
-        s = {}
-    if argh is None:
-        argh = {}
     if not isinstance(model, cl1):
         return oslg.mismatch("model", model, cl1, mth, DBG, a)
-    if not isinstance(s, dict):
-        return oslg.mismatch("surfaces", s, dict, mth, DBG, a)
-    if not isinstance(argh, dict):
-        return oslg.mismatch("argh", argh, dict, mth, DBG, a)
+    if not isinstance(s, cl2):
+        return oslg.mismatch("surfaces", s, cl2, mth, DBG, a)
+    if not isinstance(argh, cl2):
+        # Upstream 3.5.2 has `mismatch("argh", model, cl1, ...)` here — the
+        # guard tests argh, the report names model. Ported faithfully.
+        return oslg.mismatch("argh", model, cl1, mth, DBG, a)
 
     argh.setdefault("uprate_walls", False)
     argh.setdefault("uprate_roofs", False)
@@ -193,7 +205,8 @@ def uprate(model=None, s=None, argh=None):
     groups["roof"]["op"] = oslg.trim(argh["roof_option"])
     groups["floor"]["op"] = oslg.trim(argh["floor_option"])
 
-    # Walls, roofs and floors are uprated sequentially and independently.
+    keys7 = ("deratable", "type", "construction", "filmRSI", "index", "ltype", "r")
+
     for type, g in groups.items():
         if not g["up"]:
             continue
@@ -201,162 +214,250 @@ def uprate(model=None, s=None, argh=None):
             continue
         if not (g["ut"] < UMAX):
             continue
-        if not (g["ut"] > UMIN):
+        if g["ut"] < 0:
             continue
 
         typ = type
         if typ == "roof":
-            typ = "ceiling"  # TBD surface type for roofs
+            typ = "ceiling"
 
-        coll = {}       # construction id -> aggregation state
-        op = g["op"]
+        coll = {}
+        area = 0
+        film = 100000000000000
+        lc = None
+        id = ""
+        op = g["op"].lower()
+        all_of_type = op in tout
 
-        if op.lower() in tout:
-            # Uprate ALL constructions of this type.
+        if g["op"] == "":
+            oslg.log(WRN, "Construction (%s) to uprate? (%s)" % (type, mth))
+        elif all_of_type:
             for nom, surface in s.items():
-                if not _uprate_surface_ok(surface, cl3):
+                if any(key not in surface for key in keys7):
+                    continue
+                if not surface["deratable"]:
                     continue
                 if surface["type"] != typ:
                     continue
-                lc = surface["construction"]
-                id = lc.nameString()
-                _coll_init(coll, id, lc)
-                coll[id].setdefault("idx", surface["index"])
-                coll[id].setdefault("ltp", surface["ltype"])
-                _coll_add_surface(coll[id], nom, surface)
+                if not isinstance(surface["construction"], cl3):
+                    continue
+                if surface["index"] is None:
+                    continue
+
+                # Retain lowest surface film resistance (e.g. tilted surfaces).
+                c = surface["construction"]
+                i = c.nameString()
+                aire = c.getNetArea()
+                if surface["filmRSI"] < film:
+                    film = surface["filmRSI"]
+
+                # Retain construction covering largest area.
+                if aire > area:
+                    lc = c
+                    area = aire
+                    id = i
+
+                if i not in coll:
+                    coll[i] = {"area": aire, "lc": c, "s": {}}
+                if nom not in coll[i]["s"]:
+                    coll[i]["s"][nom] = {"a": surface["net"]}
         else:
-            # Uprate a single, user-named construction.
-            id = op
+            id = g["op"]
             lc = model.getConstructionByName(id)
             if lc.empty():
                 oslg.log(WRN, "Construction '%s'? (%s)" % (id, mth))
                 continue
+
             lc = lc.get().to_LayeredConstruction()
             if lc.empty():
                 oslg.log(WRN, "'%s' layered construction? (%s)" % (id, mth))
                 continue
-            lc = lc.get()
 
-            _coll_init(coll, id, lc)
+            lc = lc.get()
+            area = lc.getNetArea()
+            coll[id] = {"area": area, "lc": lc, "s": {}}
+
             for nom, surface in s.items():
-                if not _uprate_surface_ok(surface, cl3):
+                if any(key not in surface for key in keys7):
+                    continue
+                if not surface["deratable"]:
                     continue
                 if surface["type"] != typ:
                     continue
-                if surface["construction"].nameString() != id:
-                    continue
-                coll[id].setdefault("idx", surface["index"])
-                coll[id].setdefault("ltp", surface["ltype"])
-                _coll_add_surface(coll[id], nom, surface)
-
-        if not coll:
-            oslg.log(WRN, "Unable to uprate %s construction - skipping (%s)" % (type, mth))
-            continue
-
-        # Ensure each construction is exclusive to deratable, targeted surfaces;
-        # otherwise clone it onto the non-targeted surfaces that share it.
-        for id, col in coll.items():
-            lc = col["lc"]
-            for nom, surface in s.items():
-                if not _uprate_surface_ok(surface, cl3, require_deratable=True, require_type=False):
-                    continue
-                if surface["construction"] is not lc:
+                if not isinstance(surface["construction"], cl3):
                     continue
                 if surface["index"] is None:
                     continue
-                if surface["type"] == typ:
-                    continue
-                if nom in coll[id]["s"]:
-                    continue
-                oslg.log(INF, "Cloning '%s' construction - not '%s' (%s)" % (nom, id, mth))
-                srf = model.getSurfaceByName(nom)
-                if srf.empty():
-                    continue
-                srf = srf.get()
-                cloned = lc.clone(model).to_LayeredConstruction().get()
-                cloned.setName("%s - cloned" % nom)
-                srf.setConstruction(cloned)
-                surface["construction"] = cloned
 
-        for id, col in coll.items():
-            for item in col["s"].values():
-                col["hloss"] += item["h"]
-                col["area"] += item["a"]
-                if not item["f"] < 0:
-                    col["fA"] += item["a"] / item["f"]
+                i = surface["construction"].nameString()
+                if i != id:
+                    continue
 
-            if col["area"] < TOL:
-                oslg.empty("%s area" % id, mth, WRN)
+                if surface["filmRSI"] < film:
+                    film = surface["filmRSI"]
+                if nom not in coll[i]["s"]:
+                    coll[i]["s"][nom] = {"a": surface["net"]}
+
+        if not coll:
+            oslg.log(WRN, "No %s construction to uprate - skipping (%s)" % (type, mth))
+            continue
+        elif lc is not None:
+            # Valid layered construction - good to uprate!
+            lyr = osut.insulatingLayer(lc)
+            idx = lyr["index"]
+            if not _is_num(idx):
+                idx = None
+            if idx is not None and not (idx >= 0):
+                idx = None
+            if idx is not None and not (idx < len(lc.layers())):
+                idx = None
+            if idx is None:
+                oslg.log(WRN, "Insulation index for '%s'? (%s)" % (id, mth))
+                continue
+            lyr["index"] = idx
+
+            # Ensure lc is exclusively linked to deratable surfaces of right
+            # type. If not, assign new lc clone to non-targeted surfaces.
+            for nom, surface in s.items():
+                if "type" not in surface:
+                    continue
+                if "deratable" not in surface:
+                    continue
+                if "construction" not in surface:
+                    continue
+                if not isinstance(surface["construction"], cl3):
+                    continue
+                if surface["construction"] != lc:
+                    continue
+                if not surface["deratable"]:
+                    continue
+
+                ok = True
+                if surface["type"] != typ:
+                    ok = False
+                if id not in coll:
+                    ok = False
+                elif nom not in coll[id]["s"]:
+                    ok = False
+
+                if not ok:
+                    oslg.log(WRN, "Cloning '%s' construction - not '%s' (%s)" % (nom, id, mth))
+                    sss = model.getSurfaceByName(nom)
+                    if sss.empty():
+                        continue
+
+                    sss = sss.get()
+                    cloned = lc.clone(model).to_LayeredConstruction().get()
+                    cloned.setName("%s - cloned" % nom)
+                    sss.setConstruction(cloned)
+                    surface["construction"] = cloned
+                    if id in coll and nom in coll[id]["s"]:
+                        del coll[id]["s"][nom]
+
+            hloss = 0  # sum of applicable psi+khi-related losses [W/K]
+
+            # Tally applicable psi+khi losses. Possible construction
+            # reassignment.
+            for i, col in coll.items():
+                for nom in list(col["s"].keys()):
+                    if nom not in s:
+                        continue
+                    if "construction" not in s[nom]:
+                        continue
+                    if "index" not in s[nom]:
+                        continue
+                    if "ltype" not in s[nom]:
+                        continue
+                    if "r" not in s[nom]:
+                        continue
+
+                    if "heatloss" in s[nom]:
+                        hloss += s[nom]["heatloss"]
+                    if s[nom]["construction"] == lc:
+                        continue
+
+                    # Reassign construction unless referencing lc.
+                    sss = model.getSurfaceByName(nom)
+                    if sss.empty():
+                        continue
+
+                    sss = sss.get()
+
+                    if sss.isConstructionDefaulted():
+                        cset = osut.defaultConstructionSet(sss)  # building? story?
+
+                        if cset is None:
+                            sss.setConstruction(lc)
+                        else:
+                            constructions = cset.defaultExteriorSurfaceConstructions()
+
+                            if not constructions.empty():
+                                constructions = constructions.get()
+                                if typ == "wall":
+                                    constructions.setWallConstruction(lc)
+                                if typ == "floor":
+                                    constructions.setFloorConstruction(lc)
+                                if typ == "ceiling":
+                                    constructions.setRoofCeilingConstruction(lc)
+                    else:
+                        sss.setConstruction(lc)
+
+                    s[nom]["construction"] = lc          # reset TBD attributes
+                    s[nom]["index"] = lyr["index"]
+                    s[nom]["ltype"] = lyr["type"]
+                    s[nom]["r"] = lyr["r"]               # temporary
+
+            # Merge to ensure a single entry for coll.
+            for i, col in coll.items():
+                if i == id:
+                    continue
+                for nom, sss in col["s"].items():
+                    if nom not in coll[id]["s"]:
+                        coll[id]["s"][nom] = sss
+
+            coll = {i: col for i, col in coll.items() if i == id}
+
+            if len(coll) != 1:
+                oslg.log(DBG, "Collection == 1? for '%s' (%s)" % (id, mth))
                 continue
 
-            # Area-weighted air-film resistance for the whole construction.
-            col["film"] = 1 / (col["fA"] / col["area"])
+            coll[id]["area"] = lc.getNetArea()
+            res = uo(model, lc, id, hloss, film, g["ut"])
 
-            u = uo(id, col["lc"], col["area"], col["film"], col["hloss"], g["ut"])
-            if not (u > UMIN):
-                oslg.log(WRN, "Unable to completely uprate '%s' (%s)" % (id, mth))
-                u = UMIN
+            if not (res["uo"] and res["m"]):
+                oslg.log(WRN, "Unable to uprate '%s' (%s)" % (id, mth))
+                continue
 
-            col["u"] = u
-            col["uA"] = u * col["area"]
-
-            # Reset each surface's :r to the uprated (pre-derating) insulation RSi.
-            lc = col["lc"]
             lyr = osut.insulatingLayer(lc)
-            for nom in col["s"].keys():
+
+            # Loop through coll "s", and reset "r" - likely modified by uo().
+            for nom in list(coll[id]["s"].keys()):
                 if nom not in s:
+                    continue
+                if "index" not in s[nom]:
+                    continue
+                if "ltype" not in s[nom]:
                     continue
                 if "r" not in s[nom]:
                     continue
-                s[nom]["r"] = lyr["r"]
+                if s[nom]["index"] != lyr["index"]:
+                    continue
+                if s[nom]["ltype"] != lyr["type"]:
+                    continue
 
-        # Area-weighted uprated Uo for this type, back into argh.
-        area = sum(col["area"] for col in coll.values())
-        uA = sum(col["uA"] for col in coll.values() if "uA" in col)
-        if area > TOL:
+                s[nom]["r"] = lyr["r"]  # uprated insulating RSi, before derating
+
             if typ == "wall":
-                argh["wall_uo"] = uA / area
+                argh["wall_uo"] = res["uo"]
             if typ == "ceiling":
-                argh["roof_uo"] = uA / area
+                argh["roof_uo"] = res["uo"]
             if typ == "floor":
-                argh["floor_uo"] = uA / area
-
-    return True
-
-
-# --- uprate helpers ----------------------------------------------------------
-
-def _uprate_surface_ok(surface, cl3, require_deratable=True, require_type=True):
-    """The long guard shared by uprate's surface loops (keys + deratable + type)."""
-    for key in ("deratable", "type", "construction", "filmRSI", "ltype", "r", "index", "net"):
-        if key not in surface:
+                argh["floor_uo"] = res["uo"]
+        else:
+            oslg.log(WRN, "Nilled construction to uprate - (%s)" % mth)
             return False
-    if require_deratable and not surface["deratable"]:
-        return False
-    if not isinstance(surface["construction"], cl3):
-        return False
-    if surface["index"] is None:
-        return False
+
     return True
-
-
-def _coll_init(coll, id, lc):
-    """Initialize the per-construction aggregation record (once)."""
-    if id in coll:
-        return
-    coll[id] = {"lc": lc, "s": {}, "hloss": 0, "area": 0, "film": 0, "fA": 0, "uA": 0, "u0": 0}
-
-
-def _coll_add_surface(col, nom, surface):
-    """Record a surface's net area, film resistance and (major-TB) heat loss."""
-    if nom in col["s"]:
-        return
-    col["s"][nom] = {"a": surface["net"], "f": surface["filmRSI"], "h": 0}
-    if "heatloss" not in surface:
-        return
-    if not abs(surface["heatloss"]) > TOL:
-        return
-    col["s"][nom]["h"] = surface["heatloss"]
 
 
 def qc33(s=None, sets=None, spts=True):
@@ -820,7 +921,7 @@ def ua_md(ua=None, lang="en"):
             model += " (v%s)" % ua["version"]
         if model:
             report.append(model)
-        report.append("* TBD : v3.6.0")
+        report.append("* TBD : v%s" % VERSION)
         report.append("* date : %s" % ua["date"])
 
         status = oslg.status()

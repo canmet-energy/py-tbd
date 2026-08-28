@@ -5,7 +5,7 @@ import tbd
 
 
 def test_version():
-    assert tbd.VERSION == "3.6.0"
+    assert tbd.VERSION == "3.5.2"  # the tbd-3.5.2-compat branch
 
 
 def test_upstream_pin():
