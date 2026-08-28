@@ -22,7 +22,7 @@ dependencies = [
   "openstudio",
   "oslg>=0.4.0",
   "osut>=0.9.0",
-  "py-topolys @ git+https://github.com/canmet-energy/py-topolys.git",
+  "py-topolys @ git+https://github.com/canmet-energy/py-topolys.git@364703051cb27fbe6a686f9764a996389bd0ad73",
   "jsonschema>=4",
 ]
 
