@@ -1,0 +1,100 @@
+name: Publish to PyPI (manual)
+
+# The btap R5 release discipline (canmet-energy/btap-gems D-83): build
+# ONCE, rehearse the same artifact on TestPyPI, promote the identical
+# bytes to PyPI behind the pypi environment's protection rules. The
+# 3.5.2 release is the pinned verification baseline bfb23e6 plus exactly
+# one dependency-metadata commit — the diff guard below proves it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to publish (e.g. v3.5.2)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+          fetch-depth: 0
+      - name: Diff guard — the release is the pinned tree + metadata only
+        run: |
+          BASE=bfb23e68e481842eeb996da8c164dd6c85b3aa6a
+          CHANGED=$(git diff --name-only "$BASE"..HEAD)
+          echo "changed since the verification baseline: $CHANGED"
+          test "$CHANGED" = "pyproject.toml"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the tag matches the package version
+        run: |
+          V=$(python -c "import re,pathlib; print(re.search(r'VERSION = \"(.*?)\"', pathlib.Path('src/tbd/version.py').read_text()).group(1))")
+          test "${{ inputs.tag }}" = "v$V"
+      - run: pip install -q build twine
+      - run: python -m build
+      - run: python -m twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+  publish-testpypi:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/py-tbd
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+
+  # Canmet-owned deps resolve from TestPyPI; third-party (openstudio,
+  # jsonschema, oslg, osut) come from PyPI — they were never ours and do
+  # not exist on TestPyPI. The canmet chain is what the rehearsal proves.
+  verify-testpypi:
+    needs: publish-testpypi
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install from TestPyPI (canmet packages) + PyPI (third-party)
+        run: |
+          V="${{ inputs.tag }}"; V="${V#v}"
+          pip install -q --index-url https://test.pypi.org/simple/ \
+            --extra-index-url https://pypi.org/simple/ "py-tbd==$V"
+          python - <<'PY'
+          import tbd
+          print("tbd", tbd.VERSION, "upstream", tbd.UPSTREAM_SHA)
+          assert tbd.VERSION == "3.5.2"
+          PY
+
+  publish:
+    needs: verify-testpypi
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/py-tbd
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
