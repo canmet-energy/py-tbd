@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "py-tbd"
+name = "canmet-tbd"  # PyPI similarity check blocks "py-tbd" (pytbd/tbd exist); import stays `tbd`
 dynamic = ["version"]
 description = "Thermal Bridging & Derating (TBD) for OpenStudio — native Python port of the rd2/tbd Ruby gem"
 readme = "README.md"
