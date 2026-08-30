@@ -25,7 +25,10 @@ dependencies = [
   # installed engine without a consumer commit would defeat the SHA pin.
   "oslg==0.4.0",
   "osut==0.9.1",
-  "py-topolys @ git+https://github.com/canmet-energy/py-topolys.git@364703051cb27fbe6a686f9764a996389bd0ad73",
+  # py-topolys 0.1.0 IS commit 36470305 (its v0.1.0 tag sits at exactly
+  # that SHA) — the D-79 Option A pin survives PyPI publication as an
+  # exact version pin, since PyPI forbids direct git references.
+  "py-topolys==0.1.0",
   "jsonschema>=4",
 ]
 
@@ -38,9 +41,6 @@ Source = "https://github.com/rd2/tbd"
 Upstream = "https://github.com/rd2/tbd"
 
 [tool.hatch.metadata]
-# py-topolys is distributed via Git (not yet on PyPI), so allow the direct
-# reference in [project.dependencies].
-allow-direct-references = true
 
 [tool.hatch.version]
 path = "src/tbd/version.py"
