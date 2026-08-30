@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/py-tbd
+      url: https://test.pypi.org/p/canmet-tbd
     permissions:
       id-token: write
     steps:
@@ -77,7 +77,7 @@ jobs:
         run: |
           V="${{ inputs.tag }}"; V="${V#v}"
           pip install -q --index-url https://test.pypi.org/simple/ \
-            --extra-index-url https://pypi.org/simple/ "py-tbd==$V"
+            --extra-index-url https://pypi.org/simple/ "canmet-tbd==$V"
           python - <<'PY'
           import tbd
           print("tbd", tbd.VERSION, "upstream", tbd.UPSTREAM_SHA)
@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/py-tbd
+      url: https://pypi.org/p/canmet-tbd
     permissions:
       id-token: write
     steps:
