@@ -69,6 +69,6 @@ plan and [`UPSTREAM.md`](UPSTREAM.md).
 .venv/bin/pytest tests/e2e     # end-to-end (ports of the Ruby RSpec suite)
 ```
 
-## License
+## Third-party notices
 
-MIT — © 2020-2026 Denis Bourgeois & Dan Macumber.
+See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) on licensing.
