@@ -2,7 +2,7 @@
 
 **Thermal Bridging & Derating (TBD) for OpenStudio — native Python port.**
 
-`py-tbd` is a line-for-line Python port of the [rd2/tbd](https://github.com/rd2/tbd)
+`py-tbd` is a line-for-line Python port of the [TBD](https://github.com/rd2/tbd)
 Ruby gem. It autodetects major thermal bridges (balconies, parapets, corners, …)
 in an OpenStudio model and derates the outside-facing opaque constructions
 (walls, roofs, exposed floors) to account for the added heat loss.
@@ -69,6 +69,15 @@ plan and [`UPSTREAM.md`](UPSTREAM.md).
 .venv/bin/pytest tests/e2e     # end-to-end (ports of the Ruby RSpec suite)
 ```
 
-## License
+## Third-party notices
 
-MIT — © 2020-2026 Denis Bourgeois & Dan Macumber.
+See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) on licensing.
+
+## Enhancement requests
+
+New feature requests (or even bug reports) for **TBD** should be submitted
+[here](https://github.com/rd2/tbd/issues), in an effort to ensure parity between the
+original Ruby gem and the _line-for-line_ Python port. Those more closely linked to _Topolys_
+or _OSut_ should be submitted
+[here](https://github.com/automaticmagic/topolys/issues) or
+[here](https://github.com/rd2/osut/issues), respectively.

@@ -1,7 +1,3 @@
-# MIT License
-#
-# Copyright (c) 2020-2026 Denis Bourgeois & Dan Macumber
-#
 # Native Python port of lib/tbd/geo.rb from the TBD Ruby gem: geometry/topology
 # bridge between OpenStudio surfaces and the Topolys 3D model.
 #

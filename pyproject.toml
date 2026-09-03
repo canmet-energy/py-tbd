@@ -7,10 +7,10 @@ name = "py-tbd"
 dynamic = ["version"]
 description = "Thermal Bridging & Derating (TBD) for OpenStudio — native Python port of the rd2/tbd Ruby gem"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
 requires-python = ">=3.8"
 authors = [
-  { name = "Denis Bourgeois & Dan Macumber", email = "denis@rd2.ca" },
+  { name = "Natural Resources Canada" },
 ]
 keywords = ["openstudio", "thermal", "bridging", "derating", "energy"]
 classifiers = [
@@ -30,8 +30,8 @@ dependencies = [
 test = ["pytest>=7", "pytest-cov"]
 
 [project.urls]
-Homepage = "https://github.com/rd2/tbd"
-Source = "https://github.com/rd2/tbd"
+Homepage = "https://github.com/canmet-energy/py-tbd"
+Source = "https://github.com/canmet-energy/py-tbd"
 Upstream = "https://github.com/rd2/tbd"
 
 [tool.hatch.metadata]

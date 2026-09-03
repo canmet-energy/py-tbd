@@ -1,7 +1,3 @@
-# MIT License
-#
-# Copyright (c) 2020-2026 Denis Bourgeois & Dan Macumber
-#
 # Native Python port of the TBD (Thermal Bridging & Derating) Ruby gem.
 
 # py-tbd version. Tracks the upstream Ruby TBD version it is ported from.

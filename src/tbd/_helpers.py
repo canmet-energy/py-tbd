@@ -1,7 +1,3 @@
-# MIT License
-#
-# Copyright (c) 2020-2026 Denis Bourgeois & Dan Macumber
-#
 # Internal shim that centralises the dependency surface for the py-tbd port.
 #
 # The Ruby gem relies on Ruby's `extend OSut` / `OSut extend OSlg` mixin chain,
