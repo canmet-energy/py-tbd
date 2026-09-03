@@ -1,7 +1,3 @@
-# MIT License
-#
-# Copyright (c) 2020-2026 Denis Bourgeois & Dan Macumber
-#
 # Native Python port of lib/tbd/psi.rb from the TBD Ruby gem.
 # Sources for thermal bridge types and default KHI-/PSI-factor sets:
 #   a) BETBG  = Building Envelope Thermal Bridging Guide v1.4 (or newer)

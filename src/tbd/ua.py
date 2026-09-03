@@ -1,7 +1,3 @@
-# MIT License
-#
-# Copyright (c) 2020-2026 Denis Bourgeois & Dan Macumber
-#
 # Native Python port of lib/tbd/ua.rb from the TBD Ruby gem: construction
 # uprating (uo/uprate), the Quebec 3.3 reference-value pass (qc33), and the
 # bilingual (EN/FR) UA' summary/report (ua_summary/ua_md).

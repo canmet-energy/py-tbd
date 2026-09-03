@@ -1,7 +1,3 @@
-# MIT License
-#
-# Copyright (c) 2020-2026 Denis Bourgeois & Dan Macumber
-#
 # Native Python port of the TBD (Thermal Bridging & Derating) Ruby gem.
 # Mirrors lib/tbd.rb: loads the dependency chain and re-exports the public API
 # plus the shared constants, so callers can do `import tbd; tbd.process(...)`.

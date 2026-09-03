@@ -1,7 +1,3 @@
-# MIT License
-#
-# Copyright (c) 2020-2026 Denis Bourgeois & Dan Macumber
-#
 # Runtime compatibility shims for KNOWN BUGS in py-tbd's dependencies.
 #
 # These are NOT part of the TBD port itself — they patch upstream defects in the
